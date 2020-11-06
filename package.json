@@ -1,5 +1,5 @@
 {
-  "name": "@hominem/api",
+  "name": "@aidea/api",
   "version": "0.1.0",
   "description": "",
   "main": "build/server.js",
