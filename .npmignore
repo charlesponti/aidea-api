@@ -1,0 +1,8 @@
+.editorconfig
+.idea
+.sonarlint
+.vscode
+bin
+example
+src
+test
