@@ -28,7 +28,7 @@
   "scripts": {
     "docker:up": "docker-compose up --build",
     "docker:restart": "docker-compose down && yarn docker:up",
-    "db:sync": "node ./build/data/sync.js",
+    "db:sync": "npx ts-node ./src/data/sync.ts",
     "prestart": "npm run db:sync",
     "start": "node ./build/server.js",
     "start:dev": "nodemon --config nodemon.json src/server.ts",
