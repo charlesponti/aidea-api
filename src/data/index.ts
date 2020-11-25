@@ -14,3 +14,15 @@ sequelize
   .catch(e => {
     logger.info(`🛑 Unable to connect to PostgreSQL 🎒... \n ${e}`);
   });
+
+export const Idea = sequelize.define('idea', {
+  title: {type: Sequelize.STRING},
+  description: {type: Sequelize.STRING, allowNull: false},
+});
+
+export const Vote = sequelize.define('vote', {
+  vote: {type: Sequelize.INTEGER, allowNull: false},
+});
+
+Idea.hasMany(Vote, {foreignKey: 'idea_id'});
+Vote.belongsTo(Idea, {foreignKey: 'idea_id'});
