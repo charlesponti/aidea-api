@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetches single launch 1`] = `
+Object {
+  "ideas": Array [
+    Object {
+      "id": "1",
+      "title": "foo",
+    },
+  ],
+}
+`;

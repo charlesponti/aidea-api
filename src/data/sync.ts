@@ -2,9 +2,15 @@
  * This file is to be used when the database must be reinitialised.
  */
 import * as dotenv from 'dotenv';
+import path from 'path';
 import logger from '../logger';
 
-dotenv.config();
+dotenv.config({
+  path: path.resolve(
+    __dirname,
+    `../../.env${process.env.NODE_ENV === 'test' ? '.test' : ''}`
+  ),
+});
 
 const {sequelize} = require('./index');
 

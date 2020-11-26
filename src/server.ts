@@ -7,6 +7,7 @@ dotenv.config();
 import logger from './logger';
 import typeDefs from './schema';
 import resolvers from './resolvers';
+import {sequelize} from './data';
 
 const {PORT, APP_URL, NODE_ENV = 'development'} = process.env;
 
@@ -17,6 +18,15 @@ const server = new ApolloServer({
 });
 
 if (require.main === module) {
+  sequelize
+    .authenticate()
+    .then(() => {
+      logger.info('✅ Connected to PostgreSQL 🎒');
+    })
+    .catch(e => {
+      logger.info(`🛑 Unable to connect to PostgreSQL 🎒... \n ${e}`);
+    });
+
   server.listen(PORT, () => {
     logger.info(
       `🚀 ${NODE_ENV.toUpperCase()} GraphQL Server running @ port ${PORT}`
