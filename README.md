@@ -1,4 +1,4 @@
-# Aidea
+# Aidea API
 
 🧠 A platform for collection great ideas and working together to make the future
 
